@@ -393,7 +393,7 @@ func (r *DriftReport) FilterByRisk(minRisk RiskLevel) *DriftReport {
 		var filteredDrifts []*DriftItem
 		keptAttrs := make(map[string]bool)
 		for _, d := range res.Drifts {
-			if d.RiskLevel.Order() < minOrder {
+			if d.RiskLevel.Order() <= minOrder {
 				filteredDrifts = append(filteredDrifts, d)
 				keptAttrs[d.AttributePath] = true
 			}
